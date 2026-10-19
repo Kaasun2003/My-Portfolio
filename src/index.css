@@ -1,0 +1,225 @@
+/* ---------- Tokens ---------- */
+:root {
+  --bg: #040506;
+  --charcoal: #0d1015;
+  --charcoal-2: #141922;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.2);
+
+  --cyan: #38d6ff;
+  --blue: #3b6cff;
+  --lavender: #a99bff;
+
+  --text: #f4f6fa;
+  --text-2: #b6bdc9;
+  --text-3: #8a93a1;
+
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+
+  --nav-h: 68px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 12px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+}
+
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Focus & skip link ---------- */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  background: var(--cyan);
+  color: #00131a;
+  font-weight: 600;
+  border-radius: 8px;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.35rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: 600 0.95rem/1 var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease), background-color 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+  transform: none;
+}
+.btn--primary {
+  background: linear-gradient(120deg, var(--cyan), var(--blue));
+  color: #00131a;
+  box-shadow: 0 8px 28px -10px rgba(56, 214, 255, 0.7);
+}
+.btn--primary:hover {
+  box-shadow: 0 12px 34px -8px rgba(56, 214, 255, 0.85);
+}
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--line-strong);
+  color: var(--text);
+  backdrop-filter: blur(8px);
+}
+.btn--ghost:hover {
+  border-color: var(--cyan);
+  background: rgba(56, 214, 255, 0.08);
+}
+
+/* ---------- Social icons ---------- */
+.social {
+  display: flex;
+  gap: 0.6rem;
+}
+.social a,
+.social__off {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--text-2);
+  transition: color 0.3s, border-color 0.3s, transform 0.35s var(--ease);
+}
+.social a:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+.social__off {
+  opacity: 0.45;
+  border-style: dashed;
+  cursor: help;
+}
+
+/* ---------- Placeholder marker ---------- */
+.ph {
+  color: var(--lavender);
+  text-decoration: underline dashed rgba(169, 155, 255, 0.55);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+/* ---------- Shared list ---------- */
+.plain-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-2);
+}
+.plain-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 6px;
+  height: 1px;
+  background: var(--cyan);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  .btn:hover,
+  .social a:hover {
+    transform: none;
+  }
+}
