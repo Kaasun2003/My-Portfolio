@@ -178,26 +178,32 @@
     inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.85);
 }
 
-/* Navigation Actions (Right Corner) */
-.nav__actions {
+/* Navigation Cluster (keeps Links & Switch closely paired) */
+.nav__cluster {
   display: flex;
   align-items: center;
   gap: 0.85rem;
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   z-index: 10;
 }
 
-/* Liquid Glass Theme Toggle Button */
-.nav__theme-toggle {
+/* =====================================================
+   Sliding Push Toggle Switch - Liquid Glass
+   ===================================================== */
+.nav__theme-switch {
   position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
+  width: 66px;
+  height: 34px;
   padding: 0;
-  color: var(--text);
+  border-radius: 999px;
+  cursor: pointer;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 45%, rgba(255, 255, 255, 0.04) 100%);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-top: 1px solid rgba(255, 255, 255, 0.45);
@@ -205,56 +211,142 @@
   -webkit-backdrop-filter: blur(28px) saturate(210%) brightness(108%);
   backdrop-filter: blur(28px) saturate(210%) brightness(108%);
   box-shadow:
-    0 16px 36px -8px rgba(0, 0, 0, 0.45),
-    0 6px 14px -3px rgba(0, 0, 0, 0.25),
-    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.6),
+    0 14px 32px -8px rgba(0, 0, 0, 0.45),
+    0 4px 10px -2px rgba(0, 0, 0, 0.25),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.55),
     inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.35),
-    inset 0 0 16px 0 rgba(255, 255, 255, 0.04);
+    inset 0 0 16px 0 rgba(255, 255, 255, 0.03);
   transition:
-    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.3s ease,
+    transform 0.25s var(--ease),
     border-color 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease;
+    box-shadow 0.3s ease,
+    background 0.3s ease;
   overflow: hidden;
+  user-select: none;
 }
 
-.nav__theme-toggle::before {
+/* Top curved gloss sheen */
+.nav__theme-switch::before {
   content: '';
   position: absolute;
   top: 1px;
-  left: 6px;
-  right: 6px;
-  height: 45%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.03) 75%, rgba(255, 255, 255, 0) 100%);
+  left: 8px;
+  right: 8px;
+  height: 42%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.03) 75%, rgba(255, 255, 255, 0) 100%);
   border-radius: 999px 999px 0 0;
   pointer-events: none;
-  z-index: 0;
-}
-
-.nav__theme-toggle .theme-icon {
-  position: relative;
   z-index: 1;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.nav__theme-toggle:hover {
-  transform: translateY(-2px) scale(1.06);
-  border-top-color: rgba(255, 255, 255, 0.85);
+.nav__theme-switch:hover {
+  transform: translateY(-1px) scale(1.03);
+  border-top-color: rgba(255, 255, 255, 0.8);
   box-shadow:
-    0 20px 42px -6px rgba(0, 0, 0, 0.55),
-    0 8px 18px -2px rgba(0, 0, 0, 0.35),
-    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.8),
-    inset 0 0 20px 0 rgba(255, 255, 255, 0.08);
-  color: #fff;
+    0 18px 36px -6px rgba(0, 0, 0, 0.55),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-.nav__theme-toggle:hover .theme-icon {
-  transform: rotate(25deg) scale(1.12);
+.nav__theme-switch:active {
+  transform: translateY(0) scale(0.96);
 }
 
-.nav__theme-toggle:active {
-  transform: translateY(0) scale(0.95);
+.theme-switch__track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.theme-switch__icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  z-index: 2;
+  transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-switch__icon--sun {
+  color: #ffb84d;
+  opacity: 0.45;
+}
+
+.theme-switch__icon--moon {
+  color: #c4d4f4;
+  opacity: 0.45;
+}
+
+.nav__theme-switch.is-light .theme-switch__icon--sun {
+  opacity: 0.95;
+  transform: scale(1.08);
+}
+
+.nav__theme-switch.is-dark .theme-switch__icon--moon {
+  opacity: 0.95;
+  transform: scale(1.08);
+}
+
+/* Sliding Liquid Glass Thumb */
+.theme-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  z-index: 3;
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.45, 0.64, 1),
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    color 0.35s ease;
+}
+
+/* When dark mode, thumb slides to the right (X = 32px) */
+.nav__theme-switch.is-dark .theme-switch__thumb {
+  transform: translateX(32px);
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(171, 175, 181, 0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.25),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* When light mode, thumb slides to the left (X = 0px) */
+.nav__theme-switch.is-light .theme-switch__thumb {
+  transform: translateX(0px);
+  color: #ffffff;
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  border: 1px solid #0284c7;
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 4px 16px rgba(2, 132, 199, 0.45),
+    0 2px 4px rgba(15, 23, 42, 0.15),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.7);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.theme-switch__thumb .thumb-icon {
+  transition: transform 0.45s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.nav__theme-switch:hover .thumb-icon {
+  transform: rotate(22deg) scale(1.1);
 }
 
 .nav__toggle {
@@ -2084,38 +2176,53 @@ main {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
-/* Liquid Glass Theme Toggle Button in Light Mode */
-[data-theme='light'] .nav__theme-toggle {
-  color: #0f172a;
+/* Liquid Glass Sliding Switch in Light Mode */
+[data-theme='light'] .nav__theme-switch {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.45) 45%, rgba(255, 255, 255, 0.72) 100%);
   border: 1px solid rgba(255, 255, 255, 0.9);
   border-top: 1px solid #ffffff;
   border-bottom: 1px solid rgba(15, 23, 42, 0.12);
   box-shadow:
-    0 16px 36px -8px rgba(15, 23, 42, 0.12),
-    0 6px 14px -3px rgba(15, 23, 42, 0.08),
+    0 14px 30px -8px rgba(15, 23, 42, 0.12),
+    0 4px 10px -2px rgba(15, 23, 42, 0.06),
     inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
     inset 0 -1.5px 2px 0 rgba(15, 23, 42, 0.06),
     inset 0 0 16px 0 rgba(255, 255, 255, 0.4);
 }
 
-[data-theme='light'] .nav__theme-toggle:hover {
-  background: #ffffff;
-  color: #0284c7;
-  border-color: rgba(2, 132, 199, 0.35);
-  box-shadow:
-    0 20px 42px -6px rgba(15, 23, 42, 0.18),
-    inset 0 1.5px 1px 0 #ffffff;
+[data-theme='light'] .nav__theme-switch::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 100%);
 }
 
-[data-theme='light'] .nav__theme-toggle::before {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 100%);
+[data-theme='light'] .theme-switch__icon--sun {
+  color: #d97706;
+}
+
+[data-theme='light'] .theme-switch__icon--moon {
+  color: #64748b;
 }
 
 [data-theme='light'] .nav__toggle {
   background: rgba(255, 255, 255, 0.85);
   border-color: rgba(15, 23, 42, 0.12);
   color: #0f172a;
+}
+
+/* =====================================================
+   Circular Radial Theme Wave (View Transition API)
+   ===================================================== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
 }
 
 @media (max-width: 900px) {
