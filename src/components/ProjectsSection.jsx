@@ -47,7 +47,13 @@ export default function ProjectsSection({ reducedMotion }) {
                 )}
               </div>
               <div className="project__body">
+                {p.tag && <span className="project__tag">{p.tag}</span>}
                 <h3>{p.title}</h3>
+                {p.role && (
+                  <p className="project__role">
+                    <strong>My Contribution:</strong> {p.role}
+                  </p>
+                )}
                 <p>
                   <Editable text={p.description} />
                 </p>

@@ -1,18 +1,23 @@
 /* ---------- Tokens ---------- */
 :root {
-  --bg: #040506;
-  --charcoal: #0d1015;
-  --charcoal-2: #141922;
-  --line: rgba(255, 255, 255, 0.1);
-  --line-strong: rgba(255, 255, 255, 0.2);
+  --bg: #0D0D0D;
+  --charcoal: #252525;
+  --charcoal-2: #1b1b1b;
+  --surface-raised: #424448;
+  --surface-border: #5F5F5F;
+  --line: rgba(171, 175, 181, 0.14);
+  --line-strong: rgba(171, 175, 181, 0.28);
 
-  --cyan: #38d6ff;
-  --blue: #3b6cff;
-  --lavender: #a99bff;
+  --cyan: #FFFFFF;
+  --blue: #ABAFB5;
+  --lavender: #ABAFB5;
+  --accent: #FFFFFF;
+  --accent-silver: #ABAFB5;
+  --accent-muted: #5F5F5F;
 
-  --text: #f4f6fa;
-  --text-2: #b6bdc9;
-  --text-3: #8a93a1;
+  --text: #FFFFFF;
+  --text-2: #ABAFB5;
+  --text-3: #5F5F5F;
 
   --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
   --font-body: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
@@ -94,7 +99,7 @@ video {
 
 /* ---------- Focus & skip link ---------- */
 :focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 2px solid #FFFFFF;
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -105,9 +110,9 @@ video {
   left: 0.75rem;
   z-index: 200;
   padding: 0.6rem 1rem;
-  background: var(--cyan);
-  color: #00131a;
-  font-weight: 600;
+  background: #FFFFFF;
+  color: #0D0D0D;
+  font-weight: 700;
   border-radius: 8px;
   transform: translateY(-200%);
 }
@@ -137,22 +142,28 @@ video {
   transform: none;
 }
 .btn--primary {
-  background: linear-gradient(120deg, var(--cyan), var(--blue));
-  color: #00131a;
-  box-shadow: 0 8px 28px -10px rgba(56, 214, 255, 0.7);
+  background: #FFFFFF;
+  color: #0D0D0D;
+  font-weight: 700;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 8px 24px -6px rgba(255, 255, 255, 0.32);
 }
 .btn--primary:hover {
-  box-shadow: 0 12px 34px -8px rgba(56, 214, 255, 0.85);
+  background: #ABAFB5;
+  border-color: #ABAFB5;
+  color: #0D0D0D;
+  box-shadow: 0 12px 30px -4px rgba(255, 255, 255, 0.5);
 }
 .btn--ghost {
   background: rgba(255, 255, 255, 0.04);
-  border-color: var(--line-strong);
-  color: var(--text);
+  border: 1px solid var(--surface-raised);
+  color: #FFFFFF;
   backdrop-filter: blur(8px);
 }
 .btn--ghost:hover {
-  border-color: var(--cyan);
-  background: rgba(56, 214, 255, 0.08);
+  border-color: #ABAFB5;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
 }
 
 /* ---------- Social icons ---------- */
@@ -166,14 +177,16 @@ video {
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--surface-raised);
   border-radius: 50%;
   color: var(--text-2);
-  transition: color 0.3s, border-color 0.3s, transform 0.35s var(--ease);
+  background: rgba(255, 255, 255, 0.02);
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s, transform 0.35s var(--ease);
 }
 .social a:hover {
-  color: var(--cyan);
-  border-color: var(--cyan);
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
 }
 .social__off {
@@ -184,8 +197,8 @@ video {
 
 /* ---------- Placeholder marker ---------- */
 .ph {
-  color: var(--lavender);
-  text-decoration: underline dashed rgba(169, 155, 255, 0.55);
+  color: #ABAFB5;
+  text-decoration: underline dashed rgba(171, 175, 181, 0.55);
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
 }
@@ -204,7 +217,7 @@ video {
   top: 0.8em;
   width: 6px;
   height: 1px;
-  background: var(--cyan);
+  background: #ABAFB5;
 }
 
 /* ---------- Reduced motion ---------- */
