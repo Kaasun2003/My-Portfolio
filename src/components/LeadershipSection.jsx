@@ -7,18 +7,21 @@ const ICONS = { Crown, Users, MessageSquare, Clock, CalendarCheck, Puzzle, Shiel
 const GALLERY_PHOTOS = [
   {
     src: `${import.meta.env.BASE_URL}images/bot-bash-team.jpg`,
-    alt: 'Bot Bash 2026 event team',
-    className: 'leadership__gallery-main',
+    alt: 'Bot Bash 2026 Event Team & Organizing Committee',
+    tag: 'Main Stage · Sugathadasa Stadium',
+    className: 'leadership__gallery-card--featured',
   },
   {
     src: `${import.meta.env.BASE_URL}images/bot-bash-kasun.jpg`,
-    alt: 'Kasun at Bot Bash 2026',
-    className: '',
+    alt: 'Kasun Weerasinghe at Bot Bash 2026',
+    tag: 'Organizing Committee',
+    className: 'leadership__gallery-card--portrait',
   },
   {
     src: `${import.meta.env.BASE_URL}images/bot-bash-organizers.jpg`,
-    alt: 'Bot Bash 2026 organizing team',
-    className: '',
+    alt: 'Bot Bash 2026 Core Organizing Crew',
+    tag: 'Stage & Operations Crew',
+    className: 'leadership__gallery-card--landscape',
   },
 ]
 
@@ -42,34 +45,60 @@ export default function LeadershipSection({ reducedMotion }) {
       reducedMotion={reducedMotion}
     >
       <div className="leadership-layout">
-        <ul className="soft">
-          {softSkills.map(({ icon, label }) => {
-            const Icon = ICONS[icon]
-            return (
-              <li key={label}>
-                <span className="soft__icon">
-                  <Icon size={20} strokeWidth={1.75} aria-hidden="true" />
-                </span>
-                {label}
-              </li>
-            )
-          })}
-        </ul>
-        <div className="leadership__gallery" aria-label="Photos from Bot Bash 2026">
-          {GALLERY_PHOTOS.map((photo) => (
-            <div className={`leadership__gallery-item ${photo.className}`} key={photo.src}>
-              <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
-              <button
-                className="leadership__gallery-expand"
-                type="button"
+        <div className="leadership__skills-pane">
+          <div className="leadership__pane-header">
+            <span className="leadership__tag">Professional Strengths</span>
+            <h3 className="leadership__subtitle">Core Working Habits</h3>
+          </div>
+          <div className="soft-grid">
+            {softSkills.map(({ icon, label }) => {
+              const Icon = ICONS[icon]
+              return (
+                <div className="soft-card" key={label}>
+                  <div className="soft-card__icon" aria-hidden="true">
+                    <Icon size={20} strokeWidth={1.8} />
+                  </div>
+                  <span className="soft-card__label">{label}</span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        <div className="leadership__showcase-pane">
+          <div className="leadership__pane-header">
+            <span className="leadership__tag">Event Leadership</span>
+            <h3 className="leadership__subtitle">Bot Bash 2026 Highlights</h3>
+          </div>
+          <div className="leadership__gallery" aria-label="Photos from Bot Bash 2026">
+            {GALLERY_PHOTOS.map((photo) => (
+              <div
+                className={`leadership__gallery-card ${photo.className}`}
+                key={photo.src}
                 onClick={() => setActivePhoto(photo)}
-                aria-label={`View full image: ${photo.alt}`}
-                title="View full image"
               >
-                <Maximize2 size={18} aria-hidden="true" />
-              </button>
-            </div>
-          ))}
+                <div className="leadership__gallery-media">
+                  <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+                  <div className="leadership__gallery-overlay">
+                    <span className="leadership__gallery-badge">{photo.tag}</span>
+                    <p className="leadership__gallery-caption">{photo.alt}</p>
+                  </div>
+                </div>
+                <button
+                  className="leadership__gallery-expand"
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setActivePhoto(photo)
+                  }}
+                  aria-label={`View full image: ${photo.alt}`}
+                  title="View full image"
+                >
+                  <Maximize2 size={16} aria-hidden="true" />
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       {activePhoto && (
