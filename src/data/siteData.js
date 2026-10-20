@@ -153,7 +153,7 @@ export const projects = [
     title: 'CreatorGear – Content Creators Hub',
     tag: 'Academic Group Project (Group 05)',
     role: 'Search & Filtering Module Lead',
-    description: 'A multi-vendor e-commerce marketplace engineered for content creators to buy and sell professional gear across brand new, certified refurbished, and pre-owned tiers. Developed for CIS 22032 (E-Commerce Strategies & Architecture) at South Eastern University of Sri Lanka. Built the core Search & Filtering module with multi-facet queries (category, dynamic brands, price range, condition grading, and availability), integrated with Supabase PostgreSQL, Supabase Auth/RLS, and multi-gateway payments including PayHere, Cash on Delivery, and Web3 crypto payments (Ethereum Sepolia & Polygon via ethers.js).',
+    description: 'A multi-vendor e-commerce marketplace for content creator gear with multi-condition tiers, featuring dynamic search and filtering, Supabase backend integration, and multi-gateway payments.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase (PostgreSQL)', 'PayHere', 'ethers.js', 'Vercel'],
     image: `${base}images/creatorgear.jpg`,
     github: '',
