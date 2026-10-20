@@ -1,5 +1,6 @@
 /* ---------- Tokens ---------- */
-:root {
+:root,
+[data-theme='dark'] {
   --bg: #0D0D0D;
   --charcoal: #252525;
   --charcoal-2: #1b1b1b;
@@ -27,6 +28,36 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --bg: #f8fafc;
+  --charcoal: #ffffff;
+  --charcoal-2: #f1f5f9;
+  --surface-raised: #e2e8f0;
+  --surface-border: #cbd5e1;
+  --line: rgba(15, 23, 42, 0.1);
+  --line-strong: rgba(15, 23, 42, 0.2);
+
+  --cyan: #0284c7;
+  --blue: #2563eb;
+  --lavender: #6366f1;
+  --accent: #0284c7;
+  --accent-silver: #475569;
+  --accent-muted: #94a3b8;
+
+  --text: #0f172a;
+  --text-2: #334155;
+  --text-3: #64748b;
+
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+
+  --nav-h: 68px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light;
 }
 
 /* ---------- Base ---------- */

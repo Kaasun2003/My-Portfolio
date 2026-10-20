@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#06080c" />
+    <meta name="theme-color" content="#0D0D0D" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('portfolio-theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', saved);
+          if (saved === 'light') {
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', '#f8fafc');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta
       name="description"
       content="Portfolio of Kasun Sampath Weerasinghe, a Networking & Cybersecurity undergraduate."
