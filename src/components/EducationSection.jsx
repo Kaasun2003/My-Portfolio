@@ -9,8 +9,9 @@ const KIND_ICONS = {
   'University': GraduationCap,
   'Secondary school': School,
   'School leadership': Award,
-  'Daham Pasal': BookOpen,
+  'Primary School': Building2,
   'Primary school': Building2,
+  'Daham Pasal': BookOpen,
 }
 
 export default function EducationSection({ reducedMotion }) {

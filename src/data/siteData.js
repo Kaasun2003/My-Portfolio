@@ -83,7 +83,7 @@ export const education = [
     achievements: ['Successfully passed the G.C.E. Advanced Level Examination in Technology stream and qualified for university admission.'],
   },
   {
-    kind: 'School leadership',
+    kind: 'Primary School',
     institution: 'Pallebowala Secondary School',
     qualification: 'Head Prefect  Prefect / Club President / Student Leader',
     years: '',
