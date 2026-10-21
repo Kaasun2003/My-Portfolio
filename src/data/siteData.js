@@ -91,24 +91,6 @@ export const education = [
     responsibilities: ['Managed student discipline, organized school events, and led student team activities.'],
     achievements: ['Successfully organized annual school events and received recognition for outstanding leadership skills.'],
   },
-  {
-    kind: 'Daham Pasal',
-    institution: 'Sri Maliyadhewa Daham Pasala',
-    qualification: 'Head Prefect',
-    years: '[Start year] – [End year]',
-    image: `${base}images/daham-pasala.jpg`,
-    responsibilities: ['Served as Head Prefect for 2 years, leading student activities, maintaining discipline, and assisting teachers with religious and cultural events.'],
-    achievements: ['Successfully completed the final Daham Pasal Examination and fulfilled leadership duties as Head Prefect for two consecutive years.'],
-  },
-  {
-    kind: 'Primary school',
-    institution: 'Rammungoda Primary School',
-    qualification: 'Primary Education',
-    years: '[Start year] – [End year]',
-    image: `${base}images/rammungoda.jpg`,
-    responsibilities: ['Focused on foundational primary education and core academic subjects.'],
-    achievements: ['Passed the Grade 5 Scholarship Examination with 140 marks.'],
-  },
 ]
 
 /*
