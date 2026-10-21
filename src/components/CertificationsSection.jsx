@@ -69,7 +69,6 @@ export default function CertificationsSection({ reducedMotion }) {
     <Section
       id="certifications"
       title="Certifications"
-      lead="Explore verified certificates and technical credentials in interactive 3D view."
       reducedMotion={reducedMotion}
     >
       <div className="coverflow-container">
