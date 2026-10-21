@@ -75,7 +75,7 @@ export default function ContactSection({ reducedMotion }) {
             )}
           </p>
           <SocialLinks />
-          <a className="btn btn--ghost" href={profile.cv} download>
+          <a className="btn btn--ghost" href={profile.cv} download="Kasun Sampath Weerasinghe CV.pdf">
             <Download size={18} aria-hidden="true" /> Download CV
           </a>
         </div>

@@ -17,7 +17,8 @@ export const profile = {
   title: 'Networking & Cybersecurity Undergraduate',
   intro:
     "I'm an aspiring technology professional passionate about computer networking, cybersecurity, and modern web technologies. I enjoy learning new technologies, solving technical problems, and building practical projects that turn ideas into real-world solutions.",
-  cv: `${base}documents/CV.pdf`,
+  cv: `${base}documents/Kasun Sampath Weerasinghe CV.pdf`,
+  cvFileName: 'Kasun Sampath Weerasinghe CV.pdf',
   email: 'kasunsampath057@gmail.com',
 }
 

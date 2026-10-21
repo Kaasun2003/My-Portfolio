@@ -112,7 +112,7 @@ export default function HeroSection({ reducedMotion }) {
             <a className="btn btn--primary" href="#projects">
               <FolderOpen size={18} aria-hidden="true" /> View My Projects
             </a>
-            <a className="btn btn--ghost" href={profile.cv} download>
+            <a className="btn btn--ghost" href={profile.cv} download="Kasun Sampath Weerasinghe CV.pdf">
               <Download size={18} aria-hidden="true" /> Download CV
             </a>
             <a className="btn btn--ghost" href="#contact">
