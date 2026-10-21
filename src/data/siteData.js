@@ -134,7 +134,7 @@ export const projects = [
   },
   {
     title: 'CreatorGear – Content Creators Hub',
-    tag: 'Academic Group Project (Group 05)',
+    tag: 'Academic Group Project',
     role: 'Search & Filtering Module Lead',
     description: 'A multi-vendor e-commerce marketplace for content creator gear with multi-condition tiers, featuring dynamic search and filtering, Supabase backend integration, and multi-gateway payments.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase (PostgreSQL)', 'PayHere', 'ethers.js', 'Vercel'],
