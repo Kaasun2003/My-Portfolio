@@ -92,9 +92,11 @@ export default function EducationSection({ reducedMotion }) {
               <li className="timeline__item" key={e.kind}>
                 <div className="timeline__when">
                   <strong>{e.kind}</strong>
-                  <span>
-                    <Editable text={e.years} />
-                  </span>
+                  {e.years ? (
+                    <span>
+                      <Editable text={e.years} />
+                    </span>
+                  ) : null}
                 </div>
                 <span className="timeline__dot" aria-hidden="true" />
                 <div className="timeline__body">
